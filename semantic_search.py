@@ -16,7 +16,7 @@ def extract_text_from_pdfs(folder):
     for filename in os.listdir(folder):
         if filename.endswith(".pdf"):
             path = os.path.join(folder, filename)
-            doc = fitz.open(path)
+            doc = fitz.open(path)+5
             full_text = " ".join(page.get_text() for page in doc)
             for i in range(0, len(full_text), CHUNK_SIZE):
                 chunk = full_text[i:i+CHUNK_SIZE]
